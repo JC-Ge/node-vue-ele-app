@@ -34,4 +34,23 @@ router.post('/register',(req,res)=>{
     })
 })
 
+router.post('/login',(req,res) => {
+    const email = req.body.email;
+    const password = req.body.password;
+    User.findOne({email})
+        .then(user => {
+            if(!user){
+                res.json({msg:'用户不存在'})
+            }else{
+                bcrypt.compare(password,user.password)
+                    .then(isMatch => {
+                        if(isMatch){
+                            res.json({msg:'success'})
+                        }else{
+                            return res.status(400).json({password:'密码错误'})
+                        }
+                    })
+            }
+        })
+})
 module.exports = router;
