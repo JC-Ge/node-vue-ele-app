@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const db = require('./config/keys').mongoURI
 const app = new express()
 const users = require('./router/api/users')
+const profiles = require('./router/api/profiles')
 const bodyParser = require('body-parser')
 const passport = require('passport')
 
@@ -13,7 +14,9 @@ app.use(bodyParser.json())
 
 
 app.use('/api/users',users)
+app.use('/api/profiles',profiles)
 
+// 链接数据库
 mongoose.connect(db,{ useNewUrlParser: true })
 .then(()=>{
     console.log("connected mongodb")
