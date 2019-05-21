@@ -1,6 +1,8 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+mongoose.set('useFindAndModify', false)
+
 const ProfielSchema = new Schema({
     type:{
         type:String
