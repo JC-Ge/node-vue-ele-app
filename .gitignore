@@ -1,7 +1,7 @@
 # client
 .DS_Store
-client/node_modules
-client/dist
+cli/node_modules
+cli/dist
 
 # local env files
 .env.local
