@@ -48,7 +48,7 @@ export default {
                 email:"",
                 password:"",
                 password2:"",
-                identity:"manager"
+                identity:""
             },
             rules:{
                 name:[
@@ -99,18 +99,15 @@ export default {
     methods:{
         submitForm(formName){
             this.$refs[formName].validate((valid) => {
-            if (valid) {
-                this.$axios.post('/api/users/register',registerUser).then(res => {
-                    this.$message({
-                        message:'账号注册成功！',
-                        type:'success'
+                if (valid) {
+                    this.$axios.post('/api/users/register',this.registerUser).then(res => {
+                        this.$message({
+                            message:'账号注册成功！',
+                            type:'success'
+                        })
                     })
-                })
-                this.$router.push('/login')
-            } else {
-                console.log('error submit!!');
-                return false;
-            }
+                    this.$router.push('/login')
+                } 
             });
         }
     }

@@ -52,7 +52,7 @@ router.post('/login',(req,res) => {
                                 identity:user.identity
                             }  // user._id\user.id都可以
                             // jwt.sign("规则","加密名字","过期时间","箭头函数")
-                            jwt.sign(rule,keys.secretOrKey,{expiresIn:3600},(err,token) => {
+                            jwt.sign(rule,keys.secretOrKey,{expiresIn:10},(err,token) => {    // expiresIn单位：秒
                                 if(err) throw err;
                                 res.json({
                                     success:true,

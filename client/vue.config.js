@@ -2,7 +2,7 @@ const path = require('path')
 const debug = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-    baseUrl: '/', // 根域上下文目录
+    publicPath: '/', // 根域上下文目录
     outputDir: 'dist', // 构建输出目录
     assetsDir: 'assets', // 静态资源目录 (js, css, img, fonts)
     lintOnSave: false, // 是否开启eslint保存检测，有效值：ture | false | 'error'
@@ -14,15 +14,15 @@ module.exports = {
             config.devtool = 'cheap-module-eval-source-map'
         } else { // 生产环境配置
         }
-         Object.assign(config, { // 开发生产共同配置，配置别名
-             resolve: {
-                 alias: {
-                     '@': path.resolve(__dirname, './src'),
-                     '@c': path.resolve(__dirname, './src/components'),
-                    'vue$': 'vue/dist/vue.esm.js'
-                }
-            }
-         })
+        //  Object.assign(config, { // 开发生产共同配置，配置别名
+        //      resolve: {
+        //          alias: {
+        //              '@': path.resolve(__dirname, './src'),
+        //              '@c': path.resolve(__dirname, './src/components'),
+        //             'vue$': 'vue/dist/vue.esm.js'
+        //         }
+        //     }
+        //  })
     },
     chainWebpack: config => { // webpack链接API，用于生成和修改webapck配置，
         if (debug) {
