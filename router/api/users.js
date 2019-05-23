@@ -47,6 +47,7 @@ router.post('/login',(req,res) => {
                     .then(isMatch => {
                         if(isMatch){
                             const rule = {
+                                avatar:user.avatar,
                                 id:user._id,
                                 name:user.name,
                                 identity:user.identity
