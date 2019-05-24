@@ -30,10 +30,10 @@ axios.interceptors.response.use(response => {
     // 结束加载动画
     endLoading();
     return response; 
-},err => {
+},error => {
     // 错误提醒
     endLoading();
-    Message.error(err.response.data)
+    Message.error(error.response.data)
 
     // 获取错误状态码
     const {status} = error.response;
@@ -43,6 +43,6 @@ axios.interceptors.response.use(response => {
         localStorage.removeItem('eleToken');
         router.push('/login')
     }
-    return Promise.reject(err); 
+    return Promise.reject(error); 
 })
 export default axios

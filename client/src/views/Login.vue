@@ -25,7 +25,7 @@
 <script>
 import jwt_decode from 'jwt-decode'
 export default {
-    name:"register",
+    name:"login",
     data(){
         return {
             loginUser:{
@@ -70,6 +70,12 @@ export default {
                     this.$store.dispatch("setUser",decoded)
 
                     this.$router.push('/index')
+                }).catch(err => {
+                    this.$message({
+                        message:'登陆失败！',
+                        type:'fail'
+                    })
+                    this.$router.push('/login')
                 })
 
             } else {
