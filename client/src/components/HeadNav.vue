@@ -46,7 +46,7 @@ export default {
             }
         },
         showInfoList(){
-
+            this.$router.push('/infoshow')
         },
         logout(){
             // 清除token

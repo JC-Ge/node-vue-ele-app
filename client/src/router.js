@@ -4,6 +4,9 @@ import Index from './views/Index'
 import Register from './views/Register'
 import Login from './views/Login'
 import NotFound from './views/404'
+import Home from './views/Home'
+import InfoShow from './views/InfoShow'
+
 
 Vue.use(Router)
 
@@ -18,7 +21,12 @@ const router = new Router({
     {
       path:'/index',
       name:"index",
-      component:Index
+      component:Index,
+      children:[
+        {path:"",component:Home},
+        {path:"/home",name:"home",component:Home},
+        {path:"/infoshow",name:"infoShow",component:InfoShow} // 绝对路径：/infoshow
+      ]
     },
     {
       path:'/register',

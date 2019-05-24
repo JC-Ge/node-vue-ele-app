@@ -73,7 +73,7 @@ export default {
                 }).catch(err => {
                     this.$message({
                         message:'登陆失败！',
-                        type:'fail'
+                        type:'error'
                     })
                     this.$router.push('/login')
                 })
