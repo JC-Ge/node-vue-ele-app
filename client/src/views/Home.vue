@@ -13,6 +13,7 @@
     height: 100%;
     background: url(../assets/showcase.png) no-repeat;
     background-size: 100% 100%;
+    font-family: 'Microsoft YaHei';
 }
 .container{
     width: 100%;
@@ -21,6 +22,7 @@
     padding-top: 100px;
     background-color: rgba(0,0,0,0.7);
     text-align: center;
+    padding-left: 55px;
     color: white;
 }
 .tittle{
@@ -28,7 +30,7 @@
 }
 .lead{
     margin-top: 50px;
-    font-size: 22px;
+    font-size: 18px;
 }
 </style>
 

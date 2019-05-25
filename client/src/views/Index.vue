@@ -1,22 +1,19 @@
 <template>
     <div class="index">
         <HeadNav></HeadNav>
-        <div>
-            <el-row>
-                <el-col :span="3"></el-col>
-                <el-col :span="9"><router-view></router-view></el-col>
-            </el-row>
-        </div>
+        <LeftMenu></LeftMenu>
+        <router-view></router-view>
     </div>
 </template>
 
 <script>
 import HeadNav from '../components/HeadNav'
-
+import LeftMenu from '../components/LeftMenu'
 export default {
     name:"index",
     components:{
-        HeadNav:HeadNav
+        HeadNav:HeadNav,
+        LeftMenu:LeftMenu
     }
 }
 </script>
@@ -25,5 +22,6 @@ export default {
 .index{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 </style>

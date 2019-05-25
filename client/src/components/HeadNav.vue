@@ -86,13 +86,13 @@ export default {
     font-size: 22px;
     font-family: 'Microsoft YaHei';
     letter-spacing: 3px;
-
 }
 .user{
     line-height: 60px;
     text-align: right;
     float: right;
     padding-right: 10px;
+    font-family: 'Microsoft YaHei';
 }
 .avatar{
     width: 40px;

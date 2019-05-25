@@ -5,7 +5,7 @@ const User = mongoose.model('users')
 const keys = require('./keys')
 
 const opts = {}
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken(); // 请求头authorization中的token
 opts.secretOrKey = keys.secretOrKey;
 
 module.exports = passport => {
