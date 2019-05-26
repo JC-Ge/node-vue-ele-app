@@ -55,7 +55,7 @@ router.post('/login',(req,res) => {
                             // jwt.sign(payload, secretOrPrivateKey, [options, callback])
                             // 不提供回调函数时，将返回token字符串
                             // jwt.sign("规则","加密名字","过期时间","箭头函数")
-                            jwt.sign(rule,keys.secretOrKey,{expiresIn:10},(err,token) => {    // expiresIn单位：秒
+                            jwt.sign(rule,keys.secretOrKey,{expiresIn:3600*24*7},(err,token) => {    // expiresIn单位：秒
                                 if(err) throw err;
                                 res.json({
                                     success:true,

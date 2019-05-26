@@ -24,7 +24,7 @@ router.post('/add',passport.authenticate('jwt',{session:false}),(req,res) => {  
 // @route Post /api/profiles
 // @desc 获取所有信息
 // @access Private
-router.get('/',passport.authenticate('jwt',{session:false}),(req,res) => {  
+router.get('/',(req,res) => {    // passport.authenticate('jwt',{session:false})
     Profile.find()
             .then(profiles => {
                 if(!profiles)

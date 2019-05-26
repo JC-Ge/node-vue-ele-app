@@ -7,7 +7,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .home{
     width: 100%;
     height: 100%;
@@ -22,7 +22,6 @@
     padding-top: 100px;
     background-color: rgba(0,0,0,0.7);
     text-align: center;
-    padding-left: 55px;
     color: white;
 }
 .tittle{

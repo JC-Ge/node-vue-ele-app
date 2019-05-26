@@ -1,12 +1,12 @@
 <template>
     <div class="infoshow">
         <el-row type="flex" class="row-bg" justify="center">
-            <el-col :sapn="8">
+            <el-col :span="8">
                 <div class="user">
                     <img :src="user.avatar" class="avatar" alt="">
                 </div>
             </el-col>
-            <el-col :sapn="16">
+            <el-col :span="16">
                 <div class="userinfo">
                     <div class="user-item">
                         <i class="fa fa-user"></i>

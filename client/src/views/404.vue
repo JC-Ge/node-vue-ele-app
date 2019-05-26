@@ -4,7 +4,7 @@
     </div>
 </template>
 
-<style>
+<style scoped>
 .notfound{
     width:100%;
     height:100%;
