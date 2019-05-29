@@ -50,16 +50,24 @@
       </el-table-column>
   </el-table>
   </div>
+  <Dialog :dialog="dialog"></Dialog>
 </div>
 </template>
 
 <script>
+import Dialog from '../components/Dialog'
 export default {
     name:'fundList',
     data(){
         return {
-            tableData:[]
+            tableData:[],
+            dialog:{
+              show:false
+            }
         }
+    },
+    components:{
+      Dialog
     },
     created(){
         this.getProfile();
@@ -79,7 +87,7 @@ export default {
           console.log(456)
         },
         handleAdd(){
-          
+          this.dialog.show = true; 
         }
     }
 }
