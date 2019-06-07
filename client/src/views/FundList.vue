@@ -70,7 +70,7 @@ export default {
       Dialog
     },
     created(){
-        this.getProfile();
+        // this.getProfile();
     },
     methods:{
         getProfile(){

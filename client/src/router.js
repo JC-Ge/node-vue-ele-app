@@ -27,7 +27,7 @@ const router = new Router({
         {path:"",component:Home},
         {path:"/home",name:"home",component:Home},
         {path:"/infoshow",name:"infoshow",component:InfoShow}, // 绝对路径：/infoshow
-        {path:"/fundlist",name:"fundlist",component:FundList} // 资金流水
+        {path:"/fundlist",name:"fundlist",component:FundList} 
       ]
     },
     {
@@ -49,12 +49,12 @@ const router = new Router({
 })
 
 // 路由守卫
-router.beforeEach((to,from,next) => {
-  const isLogin = localStorage.getItem('eleToken')?true:false;
-  if(to.path == '/login' || to.path == '/register'){
-    next()
-  }else{
-    isLogin?next():next('/login')
-  }
-})
+// router.beforeEach((to,from,next) => {
+//   const isLogin = localStorage.getItem('eleToken')?true:false;
+//   if(to.path == '/login' || to.path == '/register'){
+//     next()
+//   }else{
+//     isLogin?next():next('/login')
+//   }
+// })
 export default router
