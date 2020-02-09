@@ -1,9 +1,23 @@
 <template>
 <div class="fillContainer">
   <div>
-    <el-form :inline="true" ref="add_data">
+    <el-form :inline="true" ref="add_data" :model="search_data">
+      <el-form-item label="按照时间筛选：">
+        <el-date-picker           
+          v-model="search_data.dateStart"
+          type="datetime"
+          placeholder="请选择开始时间">
+        </el-date-picker>
+        --
+        <el-date-picker           
+          v-model="search_data.dateEnd"
+          type="datetime"
+          placeholder="请选择结束时间">
+        </el-date-picker>
+      </el-form-item>
+      <el-button type="primary" size="small" icon="search" @click="handleSearch">筛选</el-button>
       <el-form-item class="btnRight">
-        <el-button type="primary" size="small" icom="view" @click="handleAdd()">添加</el-button>
+        <el-button type="primary" size="small" icom="view" v-if="user.identity==='manager'" @click="handleAdd()">添加</el-button>
       </el-form-item>
     </el-form>
   </div>
@@ -38,7 +52,7 @@
           </template>
         </el-table-column>
         <el-table-column align="center" prop="remark" label="备注" width="120"></el-table-column>
-        <el-table-column label="操作" prop="operation" align="center" fixed="right" width="180">  
+        <el-table-column label="操作" prop="operation" align="center" fixed="right" width="180" v-if="user.identity==='manager'">  
           <template slot-scope="scope">
             <el-button
               type="warning"
@@ -81,6 +95,7 @@ export default {
         return {
             tableData:[],
             allTableData:[],
+            filterTableData:[],
             dialog:{
               show:false,
               title:'',
@@ -100,6 +115,10 @@ export default {
               total:0,
               page_size:5,
               page_sizes:[5,10,15,20]
+            },
+            search_data:{
+              dateStart:'',
+              dateEnd:''
             }
         }
     },
@@ -109,10 +128,16 @@ export default {
     created(){
         this.getProfile();
     },
+    computed:{
+      user(){
+        return this.$store.getters.user;
+      }
+    },
     methods:{
         getProfile(){
             this.$axios.get('/api/profiles').then(res => {
                 this.allTableData = res.data;
+                this.filterTableData = res.data;
                 this.setPaginations();
             }).catch(err => {
                 console.log(err)
@@ -190,6 +215,24 @@ export default {
             }
           }
           this.tableData = tables;
+        },
+        handleSearch(){
+          if(!this.search_data.dateStart || !this.search_data.dateEnd){
+            this.$message({
+              type:'warning',
+              message:'请选择时间区间！'
+            })
+            this.getProfile();
+          }else{
+            let startTime = this.search_data.dateStart.getTime();
+            let endTime = this.search_data.dateEnd.getTime();
+
+            this.allTableData = this.filterTableData.filter((item,index) => {
+              let temp = new Date(item.date).getTime();
+              return temp>=startTime && temp<=endTime;
+            })
+            this.setPaginations();
+          }
         }
     }
 }

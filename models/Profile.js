@@ -30,7 +30,7 @@ const ProfielSchema = new Schema({
     },
     date:{
         type:Date,
-        default:Date.now
+        default: (8*60*60*1000 + Date.now())
     }
 })
 module.exports  = Profile = mongoose.model('profile',ProfielSchema)
