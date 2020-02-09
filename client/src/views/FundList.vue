@@ -169,7 +169,7 @@ export default {
           }
         },
         handleDelete(index,row){
-          this.$axios.delete('/api/profiles/delete/'+row._id).then(res => {
+          this.$axios.delete(`/api/profiles/delete/${row._id}`).then(res => {
             this.$message({
               type:'success',
               message:'删除成功！'
