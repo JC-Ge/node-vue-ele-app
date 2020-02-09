@@ -1,6 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const db = require('./config/keys').mongoURI
+const db = require('./config/keys').LocMongoURI
 const app = new express()
 const users = require('./router/api/users')
 const profiles = require('./router/api/profiles')

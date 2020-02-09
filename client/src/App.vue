@@ -9,7 +9,7 @@ import jwt_decode from 'jwt-decode'
 export default {
   name:"app",
   created(){
-    const decoded = jwt_decode(localStorage.eleToken)
+    const decoded = jwt_decode(localStorage.getItem('eleToken'))
     // token存储到vuex中
     this.$store.dispatch("setAuthenticated",!this.isEmpty(decoded))
     this.$store.dispatch("setUser",decoded)

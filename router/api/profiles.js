@@ -66,7 +66,7 @@ router.post('/edit/:id',passport.authenticate('jwt',{session:false}),(req,res) =
     ).then(profile => res.json(profile))
 })
 
-// @route Post /api/profiles/delete
+// @route Delete /api/profiles/delete
 // @desc 删除信息接口
 // @access Private
 router.delete('/delete/:id',passport.authenticate('jwt',{session:false}),(req,res) => {
